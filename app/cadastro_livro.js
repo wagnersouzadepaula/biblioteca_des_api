@@ -8,7 +8,8 @@ const conexao = {
     database: 'biblioteca'
 };
 
-//INICIANDO CADASTRAR LIVRO
+/*INICIANDO CADASTRAR LIVRO */
+
 function cadastrarLivro(livro, callback) {
     const cliente = new Client(conexao);
     cliente.connect();
@@ -23,6 +24,34 @@ function cadastrarLivro(livro, callback) {
         })
 }
 
+
+/*INICIANDO CONSULTAR DISPONIBILIDADE DE LIVRO*/
+function pesquisarDisponibilidade(id, callback){
+    const cliente = new Client(conexao);
+    cliente.connect();
+
+    const sql = "SELECT qtdelivrodisponivel FROM livros WHERE idlivro = $1";
+    const values = [id];
+
+    cliente.query(sql, values,
+        function (err, res) {
+            if(err) {
+                callback(err.message, undefined);                
+            }
+            else if (res.rows && res.rows.length > 0) {
+                let qtdeDisponivel = res.rows;
+                return qtdeDisponivel; 
+            }
+            else {
+                const error = "Produto nao encontrado";
+                callback(error, undefined);
+            }
+            cliente.end();
+        }
+    )    
+}
+
+
 module.exports = {
-    cadastrarLivro
+    cadastrarLivro, pesquisarDisponibilidade
 };
