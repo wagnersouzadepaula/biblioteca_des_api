@@ -1,0 +1,7 @@
+*.drawio
+enunciado.pages
+*.pdf
+*.png
+/app/node_modules/
+*.ds_store
+

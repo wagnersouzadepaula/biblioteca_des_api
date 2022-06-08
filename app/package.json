@@ -1,0 +1,23 @@
+{
+  "name": "Biblioteca",
+  "version": "1.0.0",
+  "description": "Realiza controle de empréstimos de livros",
+  "main": "main.js",
+  "scripts": {
+    "start-dev": "nodemon main.js",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "biblioteca",
+    "emprestimos"
+  ],
+  "author": "Wagner Souza de Paula",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.7.3",
+    "start": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
