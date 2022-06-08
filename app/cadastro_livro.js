@@ -8,13 +8,13 @@ const conexao = {
     database: 'biblioteca'
 };
 
-//INICIANDO CADASTRAR AUTOR 
-function cadastrarAutor(autor, callback) {
+//INICIANDO CADASTRAR LIVRO
+function cadastrarLivro(livro, callback) {
     const cliente = new Client(conexao);
     cliente.connect();
 
-    const sql = "INSERT INTO autor (nomeautor, nacionalidadeautor) VALUES ($1, $2) RETURNING *";
-    const values = [autor.nomeautor, autor.nacionalidade];
+    const sql = "INSERT INTO livros (isbnlivro, titulolivro, idautor, editoralivro, anolivro, qtdelivrodisponivel) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *";
+    const values = [livro.isbnlivro, livro.titulolivro, livro.idautor, livro.editoralivro, livro.anolivro, livro.qtdelivrodisponivel];
 
     cliente.query(sql, values, 
         function (err, res){
@@ -23,8 +23,6 @@ function cadastrarAutor(autor, callback) {
         })
 }
 
-
 module.exports = {
-    cadastrarAutor
+    cadastrarLivro
 };
-

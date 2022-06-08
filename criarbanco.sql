@@ -26,7 +26,7 @@ CREATE TABLE alunos (
 
 CREATE TABLE livros (
     idLivro serial PRIMARY KEY,
-    isbnLivro INTEGER not null,
+    isbnLivro VARCHAR not null,
     tituloLivro VARCHAR not null,
     idAutor INTEGER not null,
     editoraLivro VARCHAR not null,
@@ -55,19 +55,19 @@ CREATE TABLE emprestimos (
     idUsuario INTEGER not null
 );
  
-ALTER TABLE livros ADD CONSTRAINT FK_livros_2
-    FOREIGN KEY (idAutor, idLivro)
-    REFERENCES autoria (idAutor, idLivro);
+--ALTER TABLE livros ADD CONSTRAINT FK_livros_2
+--    FOREIGN KEY (idAutor, idLivro)
+--    REFERENCES autoria (idAutor, idLivro);
  
-ALTER TABLE autoria ADD CONSTRAINT FK_autoria_1
-    FOREIGN KEY (idLivro)
-    REFERENCES livros (idLivro)
-    ON DELETE RESTRICT;
+-- ALTER TABLE autoria ADD CONSTRAINT FK_autoria_1
+--    FOREIGN KEY (idLivro)
+--    REFERENCES livros (idLivro)
+--    ON DELETE RESTRICT;
  
-ALTER TABLE autoria ADD CONSTRAINT FK_autoria_2
-    FOREIGN KEY (idAutor)
-    REFERENCES autor (idAutor)
-    ON DELETE RESTRICT;
+--ALTER TABLE autoria ADD CONSTRAINT FK_autoria_2
+--    FOREIGN KEY (idAutor)
+--    REFERENCES autor (idAutor)
+--    ON DELETE RESTRICT;
  
 ALTER TABLE emprestimos ADD CONSTRAINT FK_emprestimos_2
     FOREIGN KEY (idLivro)

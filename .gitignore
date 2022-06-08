@@ -4,4 +4,5 @@ enunciado.pages
 *.png
 /app/node_modules/
 *.ds_store
+teste.sql
 
