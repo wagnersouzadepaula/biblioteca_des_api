@@ -36,12 +36,13 @@ function pesquisarDisponibilidade(id, callback){
 
     cliente.query(sql, values,
         function (err, res) {
+            let qtdeDisponivel = []; 
             if(err) {
                 callback(err.message, undefined);                
             }
             else if (res.rows && res.rows.length > 0) {
-                let qtdeDisponivel = res.rows;
-                return qtdeDisponivel; 
+                qtdeDisponivel = res.rows;
+                callback(err, qtdeDisponivel);
             }
             else {
                 const error = "Produto nao encontrado";

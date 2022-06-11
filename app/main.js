@@ -41,14 +41,14 @@ cadastroLivro.cadastrarLivro({isbnlivro: 'nao possui', titulolivro: 'Use A cabe√
 
 /*CONSULTAR DISPONIBILIDADE DE LIVRO*/
 
-cadastroLivro.pesquisarDisponibilidade(3, function (err, livroConsultado){
+cadastroLivro.pesquisarDisponibilidade(3, function (err, res){
     console.log("consultando quantidade de livro dispon√≠vel do id 3");
     if(err){
         console.log("Erro ao consultar livro");
         console.log(err);
     } 
     else {
-        console.log(livroConsultado)
+        console.log(res)
     }
 })
 
