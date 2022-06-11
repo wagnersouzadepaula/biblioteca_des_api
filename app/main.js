@@ -4,6 +4,8 @@ const cadastroLivro = require('./cadastro_livro.js')
 
 const cadastroAluno = require('./cadastro_alunos.js')
 
+const cadastroUsuario = require('./cadastro_usuarios.js')
+
 //Main
 
 /*CADASTRAR AUTOR*/
@@ -38,7 +40,7 @@ cadastroLivro.cadastrarLivro({isbnlivro: 'nao possui', titulolivro: 'Use A cabe�
 */
 
 /*CONSULTAR DISPONIBILIDADE DE LIVRO*/
-/*
+
 cadastroLivro.pesquisarDisponibilidade(3, function (err, livroConsultado){
     console.log("consultando quantidade de livro disponível do id 3");
     if(err){
@@ -46,12 +48,13 @@ cadastroLivro.pesquisarDisponibilidade(3, function (err, livroConsultado){
         console.log(err);
     } 
     else {
-        console.log("Livro de id 3")
+        console.log(livroConsultado)
     }
 })
-*/
+
 
 /* CADASTRAR ALUNO */
+/*
 cadastroAluno.cadastrarAluno({matriculaaluno: 123, nomealuno: "Aureliano Buendia", telefonealuno: '51999887766'}, function(err, alunoinserido){
     if (err) {
         console.log("Erro ao inserir o aluno.")
@@ -59,5 +62,17 @@ cadastroAluno.cadastrarAluno({matriculaaluno: 123, nomealuno: "Aureliano Buendia
     else{
         console.log(alunoinserido)
     }
-
 })
+*/
+
+/* CADASTRAR USUARIO */
+/*
+cadastroUsuario.cadastrarUsuarios({nomeusuario: "Wagner", senhausuario: 12345}, function(err,res){
+    if (err) {
+        console.log("Cadastro de usuários com problemas");
+    }
+    else{
+        console.log(res)
+    }
+})
+*/

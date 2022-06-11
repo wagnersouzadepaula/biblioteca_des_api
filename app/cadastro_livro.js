@@ -26,7 +26,7 @@ function cadastrarLivro(livro, callback) {
 
 
 /*INICIANDO CONSULTAR DISPONIBILIDADE DE LIVRO*/
-/*
+
 function pesquisarDisponibilidade(id, callback){
     const cliente = new Client(conexao);
     cliente.connect();
@@ -51,7 +51,7 @@ function pesquisarDisponibilidade(id, callback){
         }
     )    
 }
-*/
+
 
 
 
