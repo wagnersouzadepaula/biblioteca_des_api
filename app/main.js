@@ -6,6 +6,8 @@ const cadastroAluno = require('./cadastro_alunos.js')
 
 const cadastroUsuario = require('./cadastro_usuarios.js')
 
+const emprestarLivro = require('./emprestimoDeLivros')
+
 //Main
 
 /*CADASTRAR AUTOR*/
