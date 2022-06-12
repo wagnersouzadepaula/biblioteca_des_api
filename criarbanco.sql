@@ -51,7 +51,7 @@ CREATE TABLE emprestimos (
     idLivro INTEGER not null,
     idAluno INTEGER not null,
     dataEmprestimo DATE not null,
-    dataDevolucao DATE not null,
+    dataDevolucao DATE,
     idUsuario INTEGER not null
 );
  
