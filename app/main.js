@@ -12,7 +12,7 @@ const emprestarLivro = require('./emprestimoDeLivros')
 
 /*CADASTRAR AUTOR*/
 /*
-cadastroautor.cadastrarAutor({nomeautor: "Kathy Sierra", nacionalidade:'Estadunidense'}, function(err, autorInserido) {
+cadastroautor.cadastrarAutor({nomeautor: "Andre Aquiles", nacionalidade:'Brasileiro'}, function(err, autorInserido) {
         console.log("Kathy Sierra")
             if(err) {
             console.log("Sistema esta com problemas");
@@ -28,21 +28,20 @@ cadastroautor.cadastrarAutor({nomeautor: "Kathy Sierra", nacionalidade:'Estaduni
 
 //CADASTRAR LIVRO
 /*
-cadastroLivro.cadastrarLivro({isbnlivro: 'nao possui', titulolivro: 'Use A cabeça! Java', idautor: 3, editoralivro: 'Alta Books', anolivro: '2009-01-01', qtdelivrodisponivel: 1}, function(err, livroInserido){
-    console.log("Inserindo livro Use a cabeça! Java")
+cadastroLivro.cadastrarLivro({isbnlivro: '9788566250121', titulolivro: 'Agile Desenvolvimento de software com entregas frequentes e foco no valor de negócio', idautor: 4, editoralivro: 'Casa do Código', anolivro: '2013-01-01', qtdelivrodisponivel: 1}, function(err, livroInserido){
+    console.log("Inserindo livro...")
     if(err){
         console.log("Erro ao cadastrar livro");
         console.log(err)
     }
     else {
-        console.log("Livro Cadastrado: Use a cabeça! Java");
         console.log(livroInserido)
     }
 })
 */
 
 /*CONSULTAR DISPONIBILIDADE DE LIVRO*/
-
+/*
 cadastroLivro.pesquisarDisponibilidade(3, function (err, res){
     console.log("consultando quantidade de livro disponível do id 3");
     if(err){
@@ -53,7 +52,7 @@ cadastroLivro.pesquisarDisponibilidade(3, function (err, res){
         console.log(res)
     }
 })
-
+*/
 
 /* CADASTRAR ALUNO */
 /*
