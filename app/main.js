@@ -41,7 +41,7 @@ cadastroLivro.cadastrarLivro({isbnlivro: '9788566250121', titulolivro: 'Agile De
 */
 
 /*CONSULTAR DISPONIBILIDADE DE LIVRO*/
-
+/*
 cadastroLivro.pesquisarDisponibilidade(3, function (err, res){
     console.log("consultando quantidade de livro disponível do id 3");
     if(err){
@@ -52,7 +52,7 @@ cadastroLivro.pesquisarDisponibilidade(3, function (err, res){
         console.log(res)
     }
 })
-
+*/
 
 /* CADASTRAR ALUNO */
 /*
@@ -79,6 +79,7 @@ cadastroUsuario.cadastrarUsuarios({nomeusuario: "Wagner", senhausuario: 12345}, 
 */
 
 /* EMPRESTAR UM LIVRO */
+
 emprestimoDeLivro.emprestarLivro({idlivro: 3, idaluno: 1, dataemprestimo:'2022-06-13', idusuario: 1}, function(err, res){
     if (err) {
         console.log("Sistema de empréstimo de livros está com problemas");
