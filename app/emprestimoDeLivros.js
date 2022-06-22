@@ -11,6 +11,9 @@ const conexao = {
 let qtde = Number;
 
 
+/*-------------------------------
+|       EMPRESTAR UM LIVRO      |
+-------------------------------*/
 function emprestarLivro(emprestimoDeLivros, callback){
     const cliente = new Client(conexao);
     cliente.connect();
@@ -24,28 +27,26 @@ function emprestarLivro(emprestimoDeLivros, callback){
         }
         else{
             qtde = res.qtdelivrodisponivel;
-            // console.log(qtde);
+            if(qtde == 0) {
+                console.log("O livro solicitado não possui unidade disponível para empréstimo");
+                cliente.end();
+            } else {
+                qtde -= 1;
+                cliente.query(sql, values, 
+                    function(err, res){
+                    console.log("Livro emprestado com sucesso!")
+                    const sqlReduzQtdeLivro = "UPDATE livros SET qtdelivrodisponivel = $1 WHERE idlivro = $2";
+                    let qtdesql = [qtde, emprestimoDeLivros.idlivro];
+                    cliente.query(sqlReduzQtdeLivro, qtdesql, function(err, res){
+                    console.log("Estoque de livros atualizado com sucesso.");
+                    cliente.end();
+                });
+                });
+        
+                
+            }
         }
     });
-
-setTimeout( () =>  {if(qtde == 0) {
-        console.log("O livro solicitado não possui unidade disponível para empréstimo");
-        cliente.end();
-    } else {
-        qtde -= 1;
-        cliente.query(sql, values, 
-            function(err, res){
-            console.log("Livro emprestado com sucesso!")
-            const sqlReduzQtdeLivro = "UPDATE livros SET qtdelivrodisponivel = $1 WHERE idlivro = $2";
-            let qtdesql = [qtde, emprestimoDeLivros.idlivro];
-            cliente.query(sqlReduzQtdeLivro, qtdesql, function(err, res){
-            console.log("Estoque de livros atualizado com sucesso.");
-            cliente.end();
-        });
-        });
-
-        
-    }}, 100);
 }
 
 

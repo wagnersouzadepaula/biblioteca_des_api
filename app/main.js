@@ -191,7 +191,7 @@ cadastroLivro.deletar(7, function(erro, livro) {
 /*-------------------------------
 |       EMPRESTAR UM LIVRO      |
 -------------------------------*/
-/*
+
 emprestimoDeLivro.emprestarLivro({idlivro: 3, idaluno: 1, dataemprestimo:'2022-06-13', idusuario: 1}, function(err, res){
     if (err) {
         console.log("Sistema de empréstimo de livros está com problemas");
@@ -200,4 +200,3 @@ emprestimoDeLivro.emprestarLivro({idlivro: 3, idaluno: 1, dataemprestimo:'2022-0
         console.log(res)
     }
 })
-*/
