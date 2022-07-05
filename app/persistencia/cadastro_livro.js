@@ -98,7 +98,7 @@ function pesquisarDisponibilidade(id, callback){
                 callback(err, qtdeDisponivel);
             }
             else {
-                const error = "Produto nao encontrado";
+                const error = "Livro nao encontrado";
                 callback(error, undefined);
             }
             cliente.end();

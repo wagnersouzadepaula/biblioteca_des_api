@@ -1,12 +1,12 @@
-const cadastroautor = require('./cadastro_autor.js')
+const cadastroautor = require('./persistencia/cadastro_autor.js');
 
-const cadastroLivro = require('./cadastro_livro.js')
+const cadastroLivro = require('./negocio/livros_negocio.js');
 
-const cadastroAluno = require('./cadastro_alunos.js')
+const cadastroAluno = require('./persistencia/cadastro_alunos.js');
 
-const cadastroUsuario = require('./cadastro_usuarios.js')
+const cadastroUsuario = require('./persistencia/cadastro_usuarios.js');
 
-const emprestimoDeLivro = require('./emprestimoDeLivros')
+const emprestimoDeLivro = require('./negocio/emprestimo_negocio.js');
 
 //Main
 
@@ -14,25 +14,23 @@ const emprestimoDeLivro = require('./emprestimoDeLivros')
 ######################################  AUTORES  ##############################
 #############################################################################/*
 
-/*###############################
-#      CADASTRAR    AUTOR       #
-###############################*/
+/*-------------------------------
+|      CADASTRAR    AUTOR       |
+-------------------------------*/
 /*
-cadastroautor.cadastrarAutor({nomeautor: "Rodrigo Cesar rebello Pinho", nacionalidade:'Brasileiro'}, function(err, autorInserido) {
+cadastroautor.cadastrarAutor({nomeautor: "Sergio Pinto Marins", nacionalidade:'Brasileiro'}, function(err, autorInserido) {
         console.log("")
             if(err) {
             console.log("Sistema esta com problemas");
             console.log(err);
         }
         else {
-            console.log("Autor cadastrado: Kathy Sierra");
+            console.log("Autor cadastrado com sucesso.");
             console.log(autorInserido);
         }
     }
 );
 */
-
-
 
 
 /*############################################################################# 
@@ -61,7 +59,6 @@ cadastroAluno.cadastrarAluno({matriculaaluno: 123, nomealuno: "Aureliano Buendia
 /*-------------------------------
 |      CADASTRAR   USUARIO      |
 -------------------------------*/
-
 /*
 cadastroUsuario.cadastrarUsuarios({nomeusuario: "Wagner", senhausuario: 12345}, function(err,res){
     if (err) {
@@ -81,7 +78,7 @@ cadastroUsuario.cadastrarUsuarios({nomeusuario: "Wagner", senhausuario: 12345}, 
 |      CADASTRAR    LIVRO       |
 -------------------------------*/
 /*
-cadastroLivro.cadastrarLivro({isbnlivro: '9788566250121', titulolivro: 'Agile Desenvolvimento de software com entregas frequentes e foco no valor de negócio', idautor: 4, editoralivro: 'Casa do Código', anolivro: '2013-01-01', qtdelivrodisponivel: 1}, function(err, livroInserido){
+cadastroLivro.inserir({isbnlivro: '9788522453757',titulolivro: 'Direito do trabalho', idautor: 9, editoralivro: 'Atlas', anolivro: '2009-01-01', qtdelivrodisponivel: 1}, function(err, livroInserido){
     console.log("Inserindo livro...")
     if(err){
         console.log("Erro ao cadastrar livro");
@@ -118,7 +115,7 @@ cadastroLivro.listar(
 |    BUSCAR  LIVROS  POR  ID    |
 -------------------------------*/
 /*
-cadastroLivro.buscarPorId(4, 
+cadastroLivro.buscarPorId(9, 
     function(erro, livros) {
         console.log("BuscarPorId(2): ");
         if(erro) {
@@ -137,7 +134,7 @@ cadastroLivro.buscarPorId(4,
 |           DE LIVRO            |
 -------------------------------*/
 /*
-cadastroLivro.pesquisarDisponibilidade(3, function (err, res){
+cadastroLivro.pesquisarDisponibilidade(9, function (err, res){
     console.log("consultando quantidade de livro disponível do id 3");
     if(err){
         console.log("Erro ao consultar livro");
@@ -191,12 +188,14 @@ cadastroLivro.deletar(7, function(erro, livro) {
 /*-------------------------------
 |       EMPRESTAR UM LIVRO      |
 -------------------------------*/
-
-emprestimoDeLivro.emprestarLivro({idlivro: 3, idaluno: 1, dataemprestimo:'2022-06-13', idusuario: 1}, function(err, res){
+/*
+emprestimoDeLivro.emprestarLivro({idlivro: 5, idaluno: 1, dataemprestimo:'2022-06-13', idusuario: 1}, function(err, res){
     if (err) {
         console.log("Sistema de empréstimo de livros está com problemas");
+        console.log(err);
     }
     else{
         console.log(res)
     }
 })
+*/
