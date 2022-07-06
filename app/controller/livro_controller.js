@@ -1,5 +1,9 @@
 const livroNegocio = require('../negocio/livros_negocio.js');
 
+
+/*------------------+
+| CADASTRAR   LIVRO |
++------------------*/
 exports.inserir = (req, res) => {
     const livro = req.body;
   
@@ -14,6 +18,10 @@ exports.inserir = (req, res) => {
       });  
 }
 
+
+/*---------------+
+| LISTAR  LIVROS |
++---------------*/
 exports.listar = (req, res) => {
     livroNegocio.listar(function (err, livros) {
       if(err) {
@@ -25,6 +33,10 @@ exports.listar = (req, res) => {
     })
 }
 
+/*---------------+
+| BUSCAR  LIVROS |
+|    POR   ID    |
+----------------*/
 exports.buscarPorId = (req, res) => {
     const id = req.params.id;
 
@@ -38,6 +50,10 @@ exports.buscarPorId = (req, res) => {
     });
 }
 
+/*-----------------+
+|   ATUALIZAR UM   |
+| LIVRO CADASTRADO |
++-----------------*/
 exports.atualizar = (req, res) => {
     const id = req.params.id;
     const livro = req.body;
@@ -52,6 +68,10 @@ exports.atualizar = (req, res) => {
       });
 }
 
+/*--------------+
+| DELETAR LIVRO |  
+|     POR  ID   |
++--------------*/
 exports.deletar = (req, res) => {
     const id = req.params.id;
     livroNegocio.deletar(id, function (err, livro){

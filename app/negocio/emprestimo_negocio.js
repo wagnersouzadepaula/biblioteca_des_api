@@ -1,12 +1,13 @@
 const livroRepositorio = require('../persistencia/emprestimoDeLivros.js');
 
-/*-------------------------------
-|       EMPRESTAR UM LIVRO      |
--------------------------------*/
+/*----------+
+| EMPRESTAR |
+| UM  LIVRO |
++----------*/
 function emprestarLivro (livro, callback) {
     if(isNaN(livro.idlivro) || isNaN(livro.idaluno) || isNaN(livro.idusuario)){
         const erro = { 
-            mensagem: "Livro, aluno ou usuário não foi informado corretamente.",
+            mensagem: "Livro, aluno ou usuário não foram informados corretamente.",
             numero: 400
         }
         callback(erro, undefined);

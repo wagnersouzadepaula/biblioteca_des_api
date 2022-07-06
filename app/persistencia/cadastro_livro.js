@@ -8,9 +8,9 @@ const conexao = {
     database: 'biblioteca'
 };
 
-/*-------------------------------
-|      CADASTRAR    LIVRO       |
--------------------------------*/
+/*------------------+
+| CADASTRAR   LIVRO |
++------------------*/
 function cadastrarLivro(livro, callback) {
     const cliente = new Client(conexao);
     cliente.connect();
@@ -25,14 +25,14 @@ function cadastrarLivro(livro, callback) {
         })
 }
 
-/*-------------------------------
-|       LISTAR     LIVROS       |
--------------------------------*/
+/*---------------+
+| LISTAR  LIVROS |
++---------------*/
 function listar(callback) {
     const cliente = new Client(conexao);
     cliente.connect();
     
-    const sql = "SELECT livros.idlivro, livros.isbnlivro, livros.titulolivro, autor.nomeautor as autor,livros.editoralivro, livros.anolivro, qtdelivrodisponivel FROM livros, autor WHERE livros.idautor = autor.idautor;";
+    const sql = "SELECT livros.idlivro, livros.isbnlivro, livros.titulolivro, autor.nomeautor as autor,livros.editoralivro, livros.anolivro, qtdelivrodisponivel FROM livros, autor WHERE livros.idautor = autor.idautor ORDER BY idlivro;";
     cliente.query(sql, 
         function (err, res) {
             if(err) {
@@ -47,9 +47,10 @@ function listar(callback) {
     )    
 }
 
-/*-------------------------------
-|    BUSCAR  LIVROS  POR  ID    |
--------------------------------*/
+/*---------------+
+| BUSCAR  LIVROS |
+|    POR   ID    |
+----------------*/
 function buscarPorId(id, callback){
     const cliente = new Client(conexao);
     cliente.connect();
@@ -76,10 +77,11 @@ function buscarPorId(id, callback){
     )    
 }
 
-/*-------------------------------
-|  CONSULTAR    DISPONIBILIDADE |
-|           DE LIVRO            |
--------------------------------*/
+/*----------------+
+|    CONSULTAR    |
+| DISPONIBILIDADE |
+|    DE LIVRO     |
++----------------*/
 function pesquisarDisponibilidade(id, callback){
     const cliente = new Client(conexao);
     cliente.connect();
@@ -106,9 +108,10 @@ function pesquisarDisponibilidade(id, callback){
     )    
 }
 
-/*-------------------------------
-| ATUALIZAR UM LIVRO CADASTRADO |
--------------------------------*/
+/*-----------------+
+|   ATUALIZAR UM   |
+| LIVRO CADASTRADO |
++-----------------*/
 function atualizar(idlivro,livro, callback) {
     const cliente = new Client(conexao);
     cliente.connect();
@@ -134,9 +137,10 @@ function atualizar(idlivro,livro, callback) {
 }
 
 
-/*-------------------------------
-|    DELETAR  LIVROS  POR  ID   |
--------------------------------*/
+/*--------------+
+| DELETAR LIVRO |  
+|     POR  ID   |
++--------------*/
 function deletar(id, callback) {
     const cliente = new Client(conexao);
     cliente.connect();

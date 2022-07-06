@@ -1,9 +1,9 @@
 const livroRepositorio = require('../persistencia/cadastro_livro.js');
 
 
-/*-------------------------------
-|      CADASTRAR    LIVRO       |
--------------------------------*/
+/*------------------+
+| CADASTRAR   LIVRO |
++------------------*/
 function inserir (livro, callback) {
     if(!livro || !livro.isbnlivro || !livro.titulolivro || !livro.idautor || !livro.editoralivro || !livro.anolivro || !livro.qtdelivrodisponivel){
         const erro = { 
@@ -18,17 +18,18 @@ function inserir (livro, callback) {
 }
 
 
-/*-------------------------------
-|       LISTAR     LIVROS       |
--------------------------------*/
+/*---------------+
+| LISTAR  LIVROS |
++---------------*/
 function listar (callback) {
     livroRepositorio.listar(callback);
 }
 
 
-/*-------------------------------
-|    BUSCAR  LIVROS  POR  ID    |
--------------------------------*/
+/*---------------+
+| BUSCAR  LIVROS |
+|    POR   ID    |
+----------------*/
 function buscarPorId(id, callback){
     if(!id || isNaN(id)){
         const erro = { 
@@ -43,10 +44,11 @@ function buscarPorId(id, callback){
 }
 
 
-/*-------------------------------
-|  CONSULTAR    DISPONIBILIDADE |
-|           DE LIVRO            |
--------------------------------*/
+/*----------------+
+|    CONSULTAR    |
+| DISPONIBILIDADE |
+|    DE LIVRO     |
++----------------*/
 function pesquisarDisponibilidade(id, callback){
     if(!id || isNaN(id)){
         const erro = { 
@@ -60,9 +62,10 @@ function pesquisarDisponibilidade(id, callback){
     }
 }
 
-/*-------------------------------
-| ATUALIZAR UM LIVRO CADASTRADO |
--------------------------------*/
+/*-----------------+
+|   ATUALIZAR UM   |
+| LIVRO CADASTRADO |
++-----------------*/
 function atualizar(id, livro, callback) {
     if(!id || isNaN(id)){
         const erro = { 
@@ -85,9 +88,10 @@ function atualizar(id, livro, callback) {
 }
 
 
-/*-------------------------------
-|    DELETAR  LIVROS  POR  ID   |
--------------------------------*/
+/*--------------+
+| DELETAR LIVRO |  
+|     POR  ID   |
++--------------*/
 function deletar(id, callback) {
     if(!id || isNaN(id)){
         const erro = { 
