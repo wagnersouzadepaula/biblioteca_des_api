@@ -1,4 +1,26 @@
 const livroNegocio = require('../negocio/livros_negocio.js');
+const jwt = require('jsonwebtoken');
+
+
+/*------------------+
+| VERIFICA USUARIO |
++------------------*/
+function verificaJWT(req, res, next){
+  const token = req.headers['Authorization'];
+  jwt.verify(token, '1234', (err, decoded) => {
+    if(err) {
+      console.log("deu erro");
+      console.log(typeof(token));
+      console.log(decoded);
+      console.log(err);
+      return res.status(401).end()
+    } else {
+      req.userId = decoded.idusuario;
+    }
+
+    next();
+  })
+};
 
 
 /*------------------+

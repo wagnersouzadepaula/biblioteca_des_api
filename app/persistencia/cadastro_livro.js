@@ -64,11 +64,11 @@ function buscarPorId(id, callback){
                 callback(err.message, undefined);                
             }
             else if (res.rows && res.rows.length > 0) {
-                let produto = res.rows[0];
-                callback(undefined, produto);
+                let livro = res.rows[0];
+                callback(undefined, livro);
             }
             else {
-                const error = "Produto nao encontrado";
+                const error = "Livro nao encontrado";
                 callback(error, undefined);
             }
 

@@ -42,8 +42,6 @@ function emprestarLivro(emprestimoDeLivros, callback){
                     cliente.end();
                 });
                 });
-        
-                
             }
         }
     });
