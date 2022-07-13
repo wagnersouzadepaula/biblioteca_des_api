@@ -94,7 +94,8 @@ function validarUsuario(usuario, callback){
                 callback(err.message, undefined);                
             }
             else if (res.rows && res.rows.length > 0 && res.rows[0].nomeusuario == usuario.nomeusuario && res.rows[0].senhausuario == usuario.senhausuario) {
-                const token = jwt.sign({idusuario:1, nomeusuario: "Wagner"}, '1234', {expiresIn: 3600});
+                const token = jwt.sign({idusuario: 1, nomeusuario: "Wagner"}, 'nelson', {expiresIn: 3600});
+                console.log(token);
                 callback(err,token);
             }
             else {

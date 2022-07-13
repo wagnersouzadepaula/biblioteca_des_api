@@ -35,11 +35,13 @@ function emprestarLivro(emprestimoDeLivros, callback){
                 cliente.query(sql, values, 
                     function(err, res){
                     console.log("Livro emprestado com sucesso!")
-                    const sqlReduzQtdeLivro = "UPDATE livros SET qtdelivrodisponivel = $1 WHERE idlivro = $2";
+                    const sqlReduzQtdeLivro = "UPDATE livros SET qtdelivrodisponivel = $1 WHERE idlivro = $2 RETURNING *";
                     let qtdesql = [qtde, emprestimoDeLivros.idlivro];
                     cliente.query(sqlReduzQtdeLivro, qtdesql, function(err, res){
                     console.log("Estoque de livros atualizado com sucesso.");
                     cliente.end();
+                    const mensagem = "O livro de id " + emprestimoDeLivros.idLivro + " foi emprestado para o usuário " + emprestimoDeLivros.idAluno;
+                    callback(err, res.rows[0]); 
                 });
                 });
             }

@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const jwt = require('jsonwebtoken');
+const { JsonWebTokenError } = require('jsonwebtoken');
 
 
 app.use(express.json()) // for parsing application/json
@@ -14,7 +15,6 @@ const emprestimoRota = require('./rotas/emprestimo_rota');
 app.use('/api/emprestimo', emprestimoRota);
 
 const usuarioRota = require('./rotas/usuario_rota');
-const { JsonWebTokenError } = require('jsonwebtoken');
 app.use('/api/usuario', usuarioRota);
 
 app.listen(port, () => {
